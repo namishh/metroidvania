@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Script" uid="uid://kywu4isuxsuk" path="res://player/scripts/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://yiwqqiep7hqw" path="res://player/states/idle.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://ilo2osypddm0" path="res://player/states/run.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://cbarvc43feurt" path="res://player/states/jump.gd" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://cmkmhef3cwg6d" path="res://player/states/fall.gd" id="5_qjkh3"]
+[ext_resource type="Script" uid="uid://bkt13udw4rqfc" path="res://player/states/dash.gd" id="6_g6k8r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
+size = Vector2(28, 28.625)
+
+[node name="Player" type="CharacterBody2D" unique_id=246969490]
+script = ExtResource("1_oul6g")
+
+[node name="States" type="Node" parent="." unique_id=405713861]
+
+[node name="Idle" type="Node" parent="States" unique_id=1615309964]
+unique_name_in_owner = true
+script = ExtResource("2_rkbax")
+
+[node name="Run" type="Node" parent="States" unique_id=1217931382]
+unique_name_in_owner = true
+script = ExtResource("3_g1dw6")
+
+[node name="Jump" type="Node" parent="States" unique_id=337382739]
+unique_name_in_owner = true
+script = ExtResource("4_yw30f")
+
+[node name="Fall" type="Node" parent="States" unique_id=841502851]
+unique_name_in_owner = true
+script = ExtResource("5_qjkh3")
+
+[node name="Dash" type="Node" parent="States" unique_id=632091184]
+unique_name_in_owner = true
+script = ExtResource("6_g6k8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=408159630]
+position = Vector2(0, -16)
+texture = SubResource("PlaceholderTexture2D_kqu6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954469116]
+position = Vector2(0, -15.3125)
+shape = SubResource("RectangleShape2D_kqu6x")
+debug_color = Color(0, 0.6, 0.69803923, 0.32941177)
+
+[node name="Label" type="Label" parent="." unique_id=1644771083]
+offset_left = -63.0
+offset_top = -45.0
+offset_right = 67.0
+offset_bottom = -31.0
+theme_override_font_sizes/font_size = 9
+text = "wow"
+horizontal_alignment = 1
+vertical_alignment = 1
