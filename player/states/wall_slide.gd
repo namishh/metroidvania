@@ -7,8 +7,12 @@ func init() -> void:
 
 func enter() -> void:
 	print("[ENTER]: WallSlide")
-	player.gravity_multiplier = 0.4
-	player.velocity.y *= 0.35
+	if player.wall_cling:
+		player.gravity_multiplier = 0
+		player.velocity.y = 0
+	else:
+		player.gravity_multiplier = 0.4
+		player.velocity.y *= 0.35
 	player.dashes = 0
 	player.jumps = 0
 	last_wall_normal = player.get_wall_normal()
