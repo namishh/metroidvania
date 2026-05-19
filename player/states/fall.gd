@@ -44,5 +44,11 @@ func physics_process(delta: float) -> PlayerState:
 		if buffer_timer > 0:
 			return jump
 		return idle
+	if player.is_on_wall() and (player.is_on_floor() == false):
+		var wall_normal = player.get_wall_normal()
+		var pressing_into_wall = (wall_normal.x > 0 and Input.is_action_pressed("ui_left")) or \
+								(wall_normal.x < 0 and Input.is_action_pressed("ui_right"))
+		if pressing_into_wall:
+			return wall_slide
 	player.velocity.x = player.direction.x * player.base_move_speed
 	return next_state

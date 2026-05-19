@@ -26,6 +26,8 @@ func process(delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	player.velocity.x = player.direction.x * player.base_move_speed
 	if player.is_on_floor() == false:
+		if player.is_on_wall():
+			return wall_slide
 		return fall
 	player.dashes = 0
 	player.jumps = 0

@@ -31,6 +31,12 @@ func process(_delta: float) -> PlayerState:
 func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
 		return idle
+	elif player.is_on_wall() and (player.is_on_floor() == false):
+		var wall_normal = player.get_wall_normal()
+		var pressing_into_wall = (wall_normal.x > 0 and Input.is_action_pressed("ui_left")) or \
+								(wall_normal.x < 0 and Input.is_action_pressed("ui_right"))
+		if pressing_into_wall:
+			return wall_slide
 	elif player.velocity.y >= 0:
 		return fall
 	player.velocity.x = player.direction.x * player.base_move_speed

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cbarvc43feurt" path="res://player/states/jump.gd" id="4_yw30f"]
 [ext_resource type="Script" uid="uid://cmkmhef3cwg6d" path="res://player/states/fall.gd" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://bkt13udw4rqfc" path="res://player/states/dash.gd" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://c677y5wav02jv" path="res://player/states/wall_slide.gd" id="7_boad6"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
 size = Vector2(32, 32)
@@ -37,6 +38,10 @@ script = ExtResource("5_qjkh3")
 [node name="Dash" type="Node" parent="States" unique_id=632091184]
 unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
+
+[node name="WallSlide" type="Node" parent="States" unique_id=541147595]
+unique_name_in_owner = true
+script = ExtResource("7_boad6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=408159630]
 position = Vector2(0, -16)

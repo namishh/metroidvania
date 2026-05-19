@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c00o5fajkqskb"]
 
 [ext_resource type="Script" uid="uid://bao84utrevdyl" path="res://keylogger.gd" id="1_m8u5f"]
-[ext_resource type="Script" uid="uid://ifiqqm1kdtwu" path="res://co.gd" id="1_rupst"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="2_wt17y"]
 
 [sub_resource type="Gradient" id="Gradient_wt17y"]
@@ -20,7 +19,6 @@ script = ExtResource("1_m8u5f")
 position = Vector2(240, 253)
 scale = Vector2(15, 32)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=782723384]
 
@@ -33,7 +31,6 @@ position = Vector2(151.22694, 246.06688)
 rotation = 0.2299029
 scale = Vector2(6.1620765, 60.830784)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2" unique_id=377227725]
 
@@ -46,7 +43,6 @@ position = Vector2(30.999996, 224.00511)
 rotation = 1.5707964
 scale = Vector2(1.8766192, 62.34922)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3" unique_id=364622944]
 
@@ -59,7 +55,6 @@ position = Vector2(362.30023, 212.94958)
 rotation = 1.5707964
 scale = Vector2(1.5672702, 56.9497)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4" unique_id=414756918]
 
@@ -72,7 +67,6 @@ position = Vector2(415.00003, 114.99999)
 rotation = 1.5707964
 scale = Vector2(3.0507848, 17.389286)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D5" unique_id=461895955]
 
@@ -85,7 +79,6 @@ position = Vector2(317.00003, 83.99999)
 rotation = 1.5707964
 scale = Vector2(3.0507848, 17.389286)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D6" unique_id=2021633839]
 
@@ -98,7 +91,6 @@ position = Vector2(17.000002, 94.11306)
 rotation = 1.5707964
 scale = Vector2(5.293719, 17.389286)
 texture = SubResource("GradientTexture1D_m8u5f")
-script = ExtResource("1_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D7" unique_id=1718764979]
 

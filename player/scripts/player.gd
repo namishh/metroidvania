@@ -9,14 +9,6 @@ var previousState : PlayerState :
 var direction : Vector2 = Vector2.ZERO
 
 
-#region states
-@onready var idle: IdleState = %Idle
-@onready var run: RunState = %Run
-@onready var jump: JumpState = %Jump
-@onready var fall: FallState = %Fall
-@onready var dash: DashState = %Dash
-#endregion
-
 #region export variables
 @export var gravity : float = 980.0
 @export var base_move_speed: float = 120.0
@@ -29,12 +21,20 @@ var direction : Vector2 = Vector2.ZERO
 @export var dash_duration: float = 0.25
 @export var effect_delay: float = 0.04
 
+@export var wall_jump_push_force: float = 200
+
+@export var wall_contact_coyote_time: float = 0.2
+@export var wall_jump_lock_time: float = 0.05
+
 @export var max_jump: int = 1;
 @export var max_dash: int = 1;
 #endregion
 
 var dashes: int = 0;
 var jumps: int = 0;
+var wall_contact_timer: float = 0.0
+var wall_jump_lock_timer: float = 0.0
+var last_wall_normal: Vector2 = Vector2.ZERO
 
 func init_states() -> void:
 	states = []
@@ -98,4 +98,18 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	velocity.y += gravity * _delta * gravity_multiplier
 	move_and_slide()
+	update_wall_contact(_delta)
 	changeState(currentState.physics_process(_delta))
+
+func update_wall_contact(delta: float) -> void:
+	if is_on_wall() and not is_on_floor():
+		last_wall_normal = get_wall_normal()
+		wall_contact_timer = wall_contact_coyote_time
+	
+	else:
+		wall_contact_timer = maxf(wall_contact_timer - delta, 0.0)
+	wall_jump_lock_timer = maxf(wall_jump_lock_timer - delta, 0.0)
+
+
+func can_wall_jump() -> bool:
+	return wall_contact_timer > 0.0 and last_wall_normal != Vector2.ZERO
