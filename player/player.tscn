@@ -17,6 +17,7 @@ size = Vector2(28, 28.625)
 
 [node name="Player" type="CharacterBody2D" unique_id=246969490]
 script = ExtResource("1_oul6g")
+wall_jump_push_force = 280.0
 
 [node name="States" type="Node" parent="." unique_id=405713861]
 

@@ -1,5 +1,7 @@
 class_name WallSlideState extends PlayerState
 
+var last_wall_normal: Vector2 = Vector2.ZERO
+
 func init() -> void:
 	pass
 
@@ -8,6 +10,9 @@ func enter() -> void:
 	player.gravity_multiplier = 0.4
 	player.velocity.y = 0
 	player.dashes = 0
+	player.jumps = 0
+	last_wall_normal = player.get_wall_normal()
+
 	
 func handle_input(_e: InputEvent) -> PlayerState:
 	if _e.is_action_pressed("jump"):

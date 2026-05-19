@@ -21,12 +21,11 @@ var direction : Vector2 = Vector2.ZERO
 @export var dash_duration: float = 0.25
 @export var effect_delay: float = 0.04
 
-@export var wall_jump_push_force: float = 150
+@export var wall_jump_push_force: float = 320
 
-@export var wall_contact_coyote_time: float = 0.2
 @export var wall_jump_lock_time: float = 0.05
 
-@export var max_jump: int = 1;
+@export var max_jump: int = 2;
 @export var max_dash: int = 1;
 #endregion
 
@@ -104,7 +103,6 @@ func _physics_process(_delta: float) -> void:
 func update_wall_contact(delta: float) -> void:
 	if is_on_wall() and not is_on_floor():
 		last_wall_normal = get_wall_normal()
-		wall_contact_timer = wall_contact_coyote_time
 	
 	else:
 		wall_contact_timer = maxf(wall_contact_timer - delta, 0.0)
