@@ -7,7 +7,14 @@ func enter() -> void:
 	print("[ENTER]: WallSlide")
 	player.gravity_multiplier = 0.4
 	player.velocity.y = 0
+	player.dashes = 0
 	
+func handle_input(_e: InputEvent) -> PlayerState:
+	if _e.is_action_pressed("jump"):
+		return wall_jump
+	return next_state
+
+
 func exit() -> void:
 	player.gravity_multiplier = 1
 

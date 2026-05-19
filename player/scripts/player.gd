@@ -21,7 +21,7 @@ var direction : Vector2 = Vector2.ZERO
 @export var dash_duration: float = 0.25
 @export var effect_delay: float = 0.04
 
-@export var wall_jump_push_force: float = 200
+@export var wall_jump_push_force: float = 150
 
 @export var wall_contact_coyote_time: float = 0.2
 @export var wall_jump_lock_time: float = 0.05

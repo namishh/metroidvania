@@ -10,6 +10,7 @@ var next_state: PlayerState = null
 @onready var run: RunState = %Run
 @onready var dash: DashState = %Dash
 @onready var wall_slide: WallSlideState  = %WallSlide
+@onready var wall_jump: WallJumpState = %WallJump
 #endregion
 
 func init() -> void:
