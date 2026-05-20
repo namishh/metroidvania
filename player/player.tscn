@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bkt13udw4rqfc" path="res://player/states/dash.gd" id="6_g6k8r"]
 [ext_resource type="Script" uid="uid://c677y5wav02jv" path="res://player/states/wall_slide.gd" id="7_boad6"]
 [ext_resource type="Script" uid="uid://csswgio24ny4c" path="res://player/states/wall_jump.gd" id="8_rgyib"]
+[ext_resource type="Script" uid="uid://cmhcjpvb1d4wk" path="res://player/states/swim_idle.gd" id="9_hg6s5"]
+[ext_resource type="Script" uid="uid://du4evsxyr6dxv" path="res://player/states/swim_run.gd" id="10_8t03j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
 size = Vector2(32, 32)
@@ -17,7 +19,7 @@ size = Vector2(28, 28.625)
 
 [node name="Player" type="CharacterBody2D" unique_id=246969490]
 collision_layer = 0
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_oul6g")
 
 [node name="States" type="Node" parent="." unique_id=405713861]
@@ -50,6 +52,14 @@ script = ExtResource("7_boad6")
 unique_name_in_owner = true
 script = ExtResource("8_rgyib")
 
+[node name="SwimIdle" type="Node" parent="States" unique_id=1286323363]
+unique_name_in_owner = true
+script = ExtResource("9_hg6s5")
+
+[node name="SwimRun" type="Node" parent="States" unique_id=2005321014]
+unique_name_in_owner = true
+script = ExtResource("10_8t03j")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=408159630]
 position = Vector2(0, -16)
 texture = SubResource("PlaceholderTexture2D_kqu6x")
@@ -72,6 +82,11 @@ vertical_alignment = 1
 [node name="OneWayRaycast" type="RayCast2D" parent="." unique_id=1446727635]
 target_position = Vector2(0, 4)
 collision_mask = 2
+hit_from_inside = true
+
+[node name="WaterRaycast" type="RayCast2D" parent="." unique_id=1035404330]
+target_position = Vector2(0, 4)
+collision_mask = 4
 hit_from_inside = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2063021784]

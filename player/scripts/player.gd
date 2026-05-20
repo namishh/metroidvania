@@ -9,6 +9,7 @@ var previousState : PlayerState :
 var direction : Vector2 = Vector2.ZERO
 
 @onready var one_way_raycast: RayCast2D = $OneWayRaycast
+@onready var water_raycast: RayCast2D = $WaterRaycast
 
 
 #region export variables

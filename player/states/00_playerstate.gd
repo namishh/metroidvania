@@ -11,6 +11,9 @@ var next_state: PlayerState = null
 @onready var dash: DashState = %Dash
 @onready var wall_slide: WallSlideState  = %WallSlide
 @onready var wall_jump: WallJumpState = %WallJump
+@onready var swim_run: SwimRunState = %SwimRun
+@onready var swim_idle: SwimIdleState = %SwimIdle
+
 #endregion
 
 func init() -> void:
@@ -28,9 +31,9 @@ func exit() -> void:
 func handle_input(_e: InputEvent) -> PlayerState:
 	return next_state
 	
-func process(delta: float) -> PlayerState:
+func process(_delta: float) -> PlayerState:
 	return next_state
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	return next_state
 		

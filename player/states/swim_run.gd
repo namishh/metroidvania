@@ -1,13 +1,15 @@
-class_name RunState extends PlayerState
+class_name SwimRunState extends PlayerState
 
 func init() -> void:
 	pass
 	
 func enter() -> void:
+	player.base_move_speed = 80
 	print("[ENTER]: Run")
 	pass
 	
 func exit() -> void:
+	player.base_move_speed = 120
 	print("[EXIT]: Run")
 	pass
 	
@@ -23,7 +25,7 @@ func handle_input(_e: InputEvent) -> PlayerState:
 	
 func process(_delta: float) -> PlayerState:
 	if player.direction.x == 0:
-		return idle
+		return swim_idle
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:

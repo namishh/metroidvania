@@ -41,7 +41,7 @@ func process(delta: float) -> PlayerState:
 			return fall
 	return next_state
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	if time > 0:
 		if player.is_on_wall():
 			var wall_normal = player.get_wall_normal()
@@ -49,7 +49,10 @@ func physics_process(delta: float) -> PlayerState:
 									(wall_normal.x < 0 and Input.is_action_pressed("ui_right"))
 			if pressing_into_wall:
 				return wall_slide
-		player.velocity.x = (player.dash_velocity * (time / player.dash_duration) + player.dash_velocity) * dir
+		var dv  = player.dash_velocity
+		if player.water_raycast.is_colliding():
+			dv = 200
+		player.velocity.x = (dv * (time / player.dash_duration) + dv) * dir
 	else:
 		return idle
 	return next_state

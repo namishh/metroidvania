@@ -1,14 +1,14 @@
-class_name RunState extends PlayerState
+class_name SwimIdleState extends PlayerState
 
 func init() -> void:
 	pass
 	
 func enter() -> void:
-	print("[ENTER]: Run")
+	print("[ENTER]: SwimIdle")
 	pass
 	
 func exit() -> void:
-	print("[EXIT]: Run")
+	print("[EXIT]: SwimIdle")
 	pass
 	
 func handle_input(_e: InputEvent) -> PlayerState:
@@ -22,16 +22,16 @@ func handle_input(_e: InputEvent) -> PlayerState:
 	return next_state
 	
 func process(_delta: float) -> PlayerState:
-	if player.direction.x == 0:
-		return idle
+	if player.direction.x != 0:
+		return swim_run
+
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x = player.direction.x * player.base_move_speed
+	player.velocity.x = 0
 	if player.is_on_floor() == false:
-		if player.is_on_wall():
-			return wall_slide
 		return fall
 	player.dashes = 0
 	player.jumps = 0
 	return next_state
+		

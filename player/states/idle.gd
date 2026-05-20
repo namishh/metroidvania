@@ -21,13 +21,15 @@ func handle_input(_e: InputEvent) -> PlayerState:
 		return dash 
 	return next_state
 	
-func process(delta: float) -> PlayerState:
+func process(_delta: float) -> PlayerState:
+	if player.water_raycast.is_colliding():
+		return swim_idle
 	if player.direction.x != 0:
 		return run
 
 	return next_state
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	player.velocity.x = 0
 	if player.is_on_floor() == false:
 		return fall

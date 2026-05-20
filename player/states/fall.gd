@@ -37,12 +37,14 @@ func process(delta: float) -> PlayerState:
 
 	return next_state
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
 		player.dashes = 0
 		player.jumps = 0
 		if buffer_timer > 0:
 			return jump
+		if player.water_raycast.is_colliding():
+			return swim_idle
 		return idle
 	if player.is_on_wall() and (player.is_on_floor() == false):
 		var wall_normal = player.get_wall_normal()
