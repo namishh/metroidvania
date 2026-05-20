@@ -5,6 +5,8 @@ class_name LevelBounds extends Node2D
 : set = _on_width_changed
 @export_range(270, 4096, 16, "suffix:px") var height: int = 270 \
 : set = _on_height_changed
+
+
 func _ready() -> void:
 	z_index = 1000
 	
