@@ -28,6 +28,8 @@ func exit() -> void:
 	pass
 	
 func handle_input(_e: InputEvent) -> PlayerState:
+	if _e.is_action_pressed("jump") and player.jumps < player.max_jump:
+		return jump
 	return next_state
 	
 func process(delta: float) -> PlayerState:

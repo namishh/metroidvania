@@ -29,7 +29,7 @@ var direction : Vector2 = Vector2.ZERO
 
 @export var wall_jump_lock_time: float = 0.05
 
-@export var max_jump: int = 2;
+@export var max_jump: int = 1;
 @export var max_dash: int = 1;
 #endregion
 

@@ -73,3 +73,7 @@ vertical_alignment = 1
 target_position = Vector2(0, 4)
 collision_mask = 2
 hit_from_inside = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2063021784]
+position = Vector2(-1, -63)
+position_smoothing_enabled = true

@@ -13,7 +13,7 @@ config_version=5
 config/name="metroid"
 run/main_scene="uid://c00o5fajkqskb"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://idv0ggbml4pq"
 
 [display]
 
