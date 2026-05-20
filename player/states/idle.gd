@@ -12,6 +12,9 @@ func exit() -> void:
 	pass
 	
 func handle_input(_e: InputEvent) -> PlayerState:
+	if _e.is_action_pressed("jump") and Input.is_action_pressed("ui_down") and player.one_way_raycast.is_colliding():
+		player.position.y += 4
+		return fall
 	if _e.is_action_pressed("jump") and player.jumps < player.max_jump:
 		return jump
 	if _e.is_action_pressed("dash") and player.dashes < player.max_dash:

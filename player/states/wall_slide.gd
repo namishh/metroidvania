@@ -27,10 +27,10 @@ func handle_input(_e: InputEvent) -> PlayerState:
 func exit() -> void:
 	player.gravity_multiplier = 1
 
-func process(delta: float) -> PlayerState:
+func process(_delta: float) -> PlayerState:
 	return next_state
 	
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
 		return idle
 	if player.is_on_wall():

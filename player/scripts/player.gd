@@ -8,6 +8,8 @@ var previousState : PlayerState :
 	get : return states[1]
 var direction : Vector2 = Vector2.ZERO
 
+@onready var one_way_raycast: RayCast2D = $OneWayRaycast
+
 
 #region export variables
 @export var gravity : float = 980.0
