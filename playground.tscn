@@ -48,21 +48,9 @@ visible = false
 visible = false
 shape = SubResource("RectangleShape2D_is3ju")
 
-[node name="ground_2" type="Sprite2D" parent="." unique_id=1385931670]
-position = Vector2(801.50006, 296)
-scale = Vector2(8.156251, 118.000015)
-texture = SubResource("GradientTexture1D_m8u5f")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="ground_2" unique_id=545063318]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_2/StaticBody2D" unique_id=1105076706]
-visible = false
-shape = SubResource("RectangleShape2D_is3ju")
-
 [node name="ground_3" type="Sprite2D" parent="." unique_id=619999642]
-position = Vector2(543.00006, 325)
-scale = Vector2(9.9375, 8.999996)
+position = Vector2(543.00006, 336.75)
+scale = Vector2(9.9375, 32.50001)
 texture = SubResource("GradientTexture1D_m8u5f")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_3" unique_id=812789855]
@@ -206,9 +194,9 @@ position = Vector2(258, 210)
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=1109104211]
 z_index = 1000
-position = Vector2(-188, -75)
+position = Vector2(-351, -73)
 script = ExtResource("3_m8u5f")
-width = 992
+width = 1376
 height = 398
 metadata/_custom_type_script = "uid://btkd717704ick"
 
@@ -229,3 +217,15 @@ visible = false
 position = Vector2(0.069107056, 5.7259064)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_m8u5f")
+
+[node name="ground_2" type="Sprite2D" parent="." unique_id=1385931670]
+position = Vector2(849.50006, 296)
+scale = Vector2(11.156249, 118.000015)
+texture = SubResource("GradientTexture1D_m8u5f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground_2" unique_id=545063318]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_2/StaticBody2D" unique_id=1105076706]
+visible = false
+shape = SubResource("RectangleShape2D_is3ju")
