@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnhi1e2f4kyvv"]
 
-[ext_resource type="Script" uid="uid://cr1p1khwowjyh" path="res://interactions/interaction_manager.gd" id="1_rcx0w"]
+[ext_resource type="Script" uid="uid://cr1p1khwowjyh" path="res://interactions/scripts/interaction_manager.gd" id="1_rcx0w"]
 
 [node name="InteractionManager" type="Node2D" unique_id=1753249187]
 z_index = 4096

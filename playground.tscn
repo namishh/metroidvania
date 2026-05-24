@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://bao84utrevdyl" path="res://general/keylogger.gd" id="1_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="2_wt17y"]
 [ext_resource type="Script" uid="uid://btkd717704ick" path="res://general/level_bounds.gd" id="3_m8u5f"]
-[ext_resource type="Script" uid="uid://bjjco18fbjwj1" path="res://temporary_lift.gd" id="3_o00ia"]
+[ext_resource type="Script" uid="uid://bjjco18fbjwj1" path="res://travel/lifts/vertical_lift.gd" id="3_o00ia"]
 [ext_resource type="PackedScene" uid="uid://cns7btdlckoud" path="res://interactions/interaction_area.tscn" id="4_o00ia"]
+[ext_resource type="Script" uid="uid://cqvb1kf1gn6uw" path="res://travel/lifts/lift_button.gd" id="5_4bqqs"]
 
 [sub_resource type="Gradient" id="Gradient_o00ia"]
 
@@ -82,6 +83,40 @@ height = 72
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7pug"]
 size = Vector2(48, 10)
+
+[sub_resource type="Gradient" id="Gradient_pio1y"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jgc46"]
+gradient = SubResource("Gradient_pio1y")
+width = 8
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk0co"]
+size = Vector2(22, 43)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pactg"]
+gradient = SubResource("Gradient_pio1y")
+width = 8
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdrs"]
+size = Vector2(22, 43)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f7pug"]
+gradient = SubResource("Gradient_v7dth")
+width = 100
+height = 14
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgc46"]
+size = Vector2(100, 14)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dk0co"]
+gradient = SubResource("Gradient_v7dth")
+width = 100
+height = 14
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pactg"]
+size = Vector2(100, 14)
 
 [sub_resource type="Gradient" id="Gradient_is3ju"]
 colors = PackedColorArray(0.14117648, 0.22745098, 0.49019608, 0.70980394, 0.49019608, 0.69803923, 0.8235294, 0.53333336)
@@ -225,8 +260,63 @@ texture = SubResource("GradientTexture2D_te8jg")
 position = Vector2(0, 31)
 shape = SubResource("RectangleShape2D_f7pug")
 
+[node name="lift_up" type="Sprite2D" parent="." unique_id=1846674497 node_paths=PackedStringArray("lift")]
+position = Vector2(574, 83)
+texture = SubResource("GradientTexture2D_jgc46")
+script = ExtResource("5_4bqqs")
+lift = NodePath("../lift")
+
+[node name="InteractionArea" parent="lift_up" unique_id=596121884 instance=ExtResource("4_o00ia")]
+position = Vector2(1, -11)
+action_name = "call lift up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lift_up/InteractionArea" unique_id=560321685]
+position = Vector2(-4, -2)
+shape = SubResource("RectangleShape2D_dk0co")
+
+[node name="lift_down" type="Sprite2D" parent="." unique_id=1893457622 node_paths=PackedStringArray("lift")]
+position = Vector2(574, 218)
+texture = SubResource("GradientTexture2D_pactg")
+script = ExtResource("5_4bqqs")
+lift = NodePath("../lift")
+call_from_top = true
+
+[node name="InteractionArea" parent="lift_down" unique_id=162179094 instance=ExtResource("4_o00ia")]
+position = Vector2(1, -11)
+action_name = "call lift down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lift_down/InteractionArea" unique_id=1620588467]
+position = Vector2(-4, -2)
+shape = SubResource("RectangleShape2D_ycdrs")
+
+[node name="one_way3" type="Sprite2D" parent="." unique_id=426054268]
+position = Vector2(532, 98)
+texture = SubResource("GradientTexture2D_f7pug")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="one_way3" unique_id=1754756443]
+visible = false
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="one_way3/StaticBody2D" unique_id=934726365]
+shape = SubResource("RectangleShape2D_jgc46")
+one_way_collision = true
+
+[node name="one_way2" type="Sprite2D" parent="." unique_id=1531731537]
+position = Vector2(413, 159)
+texture = SubResource("GradientTexture2D_dk0co")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="one_way2" unique_id=544450167]
+visible = false
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="one_way2/StaticBody2D" unique_id=1966775705]
+shape = SubResource("RectangleShape2D_pactg")
+one_way_collision = true
+
 [node name="Player" parent="." unique_id=246969490 instance=ExtResource("2_wt17y")]
-position = Vector2(384, 190)
+position = Vector2(495, 191)
 
 [node name="Water" type="Node2D" parent="." unique_id=91325392]
 position = Vector2(576, 288)
