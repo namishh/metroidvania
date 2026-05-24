@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bnhi1e2f4kyvv"]
+
+[ext_resource type="Script" uid="uid://cr1p1khwowjyh" path="res://interactions/interaction_manager.gd" id="1_rcx0w"]
+
+[node name="InteractionManager" type="Node2D" unique_id=1753249187]
+z_index = 4096
+script = ExtResource("1_rcx0w")
+
+[node name="Label" type="Label" parent="." unique_id=1734166665]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_right = 52.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "[F] TO INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1

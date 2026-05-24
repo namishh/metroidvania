@@ -41,6 +41,7 @@ var wall_jump_lock_timer: float = 0.0
 var last_wall_normal: Vector2 = Vector2.ZERO
 
 func init_states() -> void:
+
 	states = []
 	
 	for c in $States.get_children():
