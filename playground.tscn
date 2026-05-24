@@ -60,7 +60,7 @@ height = 8
 size = Vector2(48, 8)
 
 [sub_resource type="Gradient" id="Gradient_v7dth"]
-colors = PackedColorArray(0.8786985, 0.56412137, 0.25572112, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.41960785, 0, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pio1y"]
 gradient = SubResource("Gradient_v7dth")
@@ -102,8 +102,10 @@ height = 16
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdrs"]
 size = Vector2(22, 43)
 
+[sub_resource type="Gradient" id="Gradient_te8jg"]
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f7pug"]
-gradient = SubResource("Gradient_v7dth")
+gradient = SubResource("Gradient_te8jg")
 width = 100
 height = 14
 
@@ -149,6 +151,14 @@ height = 100
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bqqs"]
 size = Vector2(519, 98)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ycdrs"]
+gradient = SubResource("Gradient_m8u5f")
+width = 520
+height = 100
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m40n"]
+size = Vector2(519, 98)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ynsuh"]
 gradient = SubResource("Gradient_m8u5f")
 width = 520
@@ -157,6 +167,16 @@ height = 100
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is3ju"]
 size = Vector2(520, 98)
 
+[sub_resource type="Gradient" id="Gradient_yjl7g"]
+colors = PackedColorArray(0.26433632, 0.07459932, 0.12871942, 1, 0.48270768, 0.15070313, 0.17355639, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5m40n"]
+gradient = SubResource("Gradient_yjl7g")
+height = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6kx1"]
+size = Vector2(64, 10)
+
 [node name="playground" type="Node2D" unique_id=1154549724]
 script = ExtResource("1_m8u5f")
 
@@ -164,7 +184,7 @@ script = ExtResource("1_m8u5f")
 z_index = 1000
 position = Vector2(-351, -73)
 script = ExtResource("3_m8u5f")
-width = 1376
+width = 2752
 height = 398
 metadata/_custom_type_script = "uid://btkd717704ick"
 
@@ -213,6 +233,7 @@ position = Vector2(618, 28)
 texture = SubResource("GradientTexture2D_yjl7g")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="lift_stop" unique_id=990872925]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lift_stop/StaticBody2D" unique_id=1693133802]
 shape = SubResource("RectangleShape2D_v7dth")
@@ -228,13 +249,20 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="one_way/StaticBody2D" unique_id=1913512875]
 shape = SubResource("RectangleShape2D_te8jg")
-one_way_collision = true
+disabled = true
 
 [node name="lift" type="AnimatableBody2D" parent="." unique_id=959571966]
 position = Vector2(618, 190)
 sync_to_physics = false
 script = ExtResource("3_o00ia")
 lift_id = 1
+
+[node name="player_detect_cast" type="RayCast2D" parent="lift" unique_id=1494597351]
+modulate = Color(0.6299979, 0.29987463, 0.24740061, 1)
+z_index = 200
+position = Vector2(0, 36)
+target_position = Vector2(0, 4)
+collision_mask = 2147483648
 
 [node name="lift_cast_down" type="RayCast2D" parent="lift" unique_id=63257690]
 z_index = 200
@@ -271,6 +299,7 @@ position = Vector2(1, -11)
 action_name = "call lift up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lift_up/InteractionArea" unique_id=560321685]
+visible = false
 position = Vector2(-4, -2)
 shape = SubResource("RectangleShape2D_dk0co")
 
@@ -286,21 +315,19 @@ position = Vector2(1, -11)
 action_name = "call lift down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lift_down/InteractionArea" unique_id=1620588467]
+visible = false
 position = Vector2(-4, -2)
 shape = SubResource("RectangleShape2D_ycdrs")
 
-[node name="one_way3" type="Sprite2D" parent="." unique_id=426054268]
-position = Vector2(532, 98)
+[node name="float_1" type="Sprite2D" parent="." unique_id=417364482]
+position = Vector2(533, 98)
 texture = SubResource("GradientTexture2D_f7pug")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="one_way3" unique_id=1754756443]
+[node name="StaticBody2D" type="StaticBody2D" parent="float_1" unique_id=1974673613]
 visible = false
-collision_layer = 2
-collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="one_way3/StaticBody2D" unique_id=934726365]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="float_1/StaticBody2D" unique_id=205193945]
 shape = SubResource("RectangleShape2D_jgc46")
-one_way_collision = true
 
 [node name="one_way2" type="Sprite2D" parent="." unique_id=1531731537]
 position = Vector2(413, 159)
@@ -360,6 +387,18 @@ visible = false
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_4bqqs")
 
+[node name="ground_4" type="Sprite2D" parent="grounds" unique_id=941054889]
+position = Vector2(2151, 274)
+texture = SubResource("GradientTexture2D_ycdrs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="grounds/ground_4" unique_id=2041537958]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grounds/ground_4/StaticBody2D" unique_id=948375494]
+visible = false
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_5m40n")
+
 [node name="ground_3" type="Sprite2D" parent="grounds" unique_id=1211951402]
 position = Vector2(-107, 276)
 texture = SubResource("GradientTexture2D_ynsuh")
@@ -371,3 +410,14 @@ visible = false
 visible = false
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_is3ju")
+
+[node name="horizontal_lift" type="AnimatableBody2D" parent="." unique_id=324558608]
+position = Vector2(1353, 231)
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal_lift" unique_id=683373309]
+position = Vector2(1, 0)
+texture = SubResource("GradientTexture2D_5m40n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal_lift" unique_id=1981047563]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_x6kx1")
