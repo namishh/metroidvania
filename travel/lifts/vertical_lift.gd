@@ -2,14 +2,15 @@ class_name Lift extends AnimatableBody2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var lift_cast_up: RayCast2D = $lift_cast_up
 @onready var lift_cast_down: RayCast2D = $lift_cast_down
-@onready var player_detect_cast: RayCast2D = $player_detect_cast
+@onready var player_detect: Area2D = $player_detect
 
-@export var lift_id: int = 0
+@export var lift_speed: int = 300
 var starting_pos = "down"
 var moving = false
-var player_detected = false
+
 
 var direction = Vector2.ZERO
+
 func _ready() -> void:
 	if lift_cast_up.is_colliding():
 		starting_pos = "up"
@@ -48,19 +49,19 @@ func _on_interact():
 			go_down()
 		else:
 			go_up()
+
 func _physics_process(delta: float) -> void:
+	if direction == Vector2.DOWN and player_detect.has_overlapping_bodies():
+		var bodies = player_detect.get_overlapping_bodies()
+		for b in bodies:
+			if b.is_in_group("player"):
+				reverse_direction()
+				break
 	if not moving:
 		return
 	
-	var motion = direction * 100 * delta
+	var motion = direction * lift_speed * delta
 	move_and_collide(motion)
-	
-	if player_detect_cast.is_colliding():
-		if not player_detected:
-			player_detected = true
-			reverse_direction()
-	else:
-		player_detected = false
 
 	
 	if direction == Vector2.UP and lift_cast_up.is_colliding():
