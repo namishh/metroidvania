@@ -16,6 +16,7 @@ func handle_input(_e: InputEvent) -> PlayerState:
 		player.position.y += 4
 		return fall
 	if _e.is_action_pressed("jump") and player.jumps < player.max_jump:
+		player.moving_platform_speed = player.get_platform_velocity()
 		return jump
 	if _e.is_action_pressed("dash") and player.dashes < player.max_dash:
 		return dash 
@@ -33,6 +34,7 @@ func physics_process(_delta: float) -> PlayerState:
 	player.velocity.x = 0
 	if player.is_on_floor() == false:
 		return fall
+	player.moving_platform_speed = Vector2.ZERO
 	player.dashes = 0
 	player.jumps = 0
 	return next_state

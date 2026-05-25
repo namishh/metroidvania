@@ -10,7 +10,6 @@ func enter() -> void:
 	if not Input.is_action_pressed("jump"):
 		player.velocity.y *= 0.5
 
-	
 func exit() -> void:
 	print("[EXIT]: Jump")
 	pass
@@ -39,6 +38,5 @@ func physics_process(_delta: float) -> PlayerState:
 			return wall_slide
 	elif player.velocity.y >= 0:
 		return fall
-	player.velocity.x = player.direction.x * player.base_move_speed
-
+	player.horizontal_movement()
 	return next_state

@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://du4evsxyr6dxv" path="res://player/states/swim_run.gd" id="10_8t03j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
-size = Vector2(28, 28.625)
+size = Vector2(14, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=246969490 groups=["player"]]
 collision_layer = 2147483648
@@ -61,20 +61,20 @@ unique_name_in_owner = true
 script = ExtResource("10_8t03j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=408159630]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 texture = SubResource("PlaceholderTexture2D_kqu6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954469116]
-position = Vector2(0, -15.3125)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_kqu6x")
 debug_color = Color(0, 0.6, 0.69803923, 0.32941177)
 
 [node name="Label" type="Label" parent="." unique_id=1644771083]
 offset_left = -63.0
-offset_top = -45.0
+offset_top = -32.0
 offset_right = 67.0
-offset_bottom = -31.0
-theme_override_font_sizes/font_size = 9
+offset_bottom = -18.0
+theme_override_font_sizes/font_size = 6
 text = "wow"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,4 +91,6 @@ hit_from_inside = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2063021784]
 position = Vector2(-1, -63)
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
+position_smoothing_speed = 2.0

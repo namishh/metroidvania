@@ -40,6 +40,8 @@ var wall_contact_timer: float = 0.0
 var wall_jump_lock_timer: float = 0.0
 var last_wall_normal: Vector2 = Vector2.ZERO
 
+var moving_platform_speed = Vector2.ZERO
+
 func init_states() -> void:
 
 	states = []
@@ -114,6 +116,8 @@ func update_wall_contact(delta: float) -> void:
 		wall_contact_timer = maxf(wall_contact_timer - delta, 0.0)
 	wall_jump_lock_timer = maxf(wall_jump_lock_timer - delta, 0.0)
 
+func horizontal_movement(multiplier: float = 1.0) -> void:
+	velocity.x = direction.x * base_move_speed * multiplier + moving_platform_speed.x
 
 func can_wall_jump() -> bool:
 	return wall_contact_timer > 0.0 and last_wall_normal != Vector2.ZERO

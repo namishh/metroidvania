@@ -29,7 +29,7 @@ func process(_delta: float) -> PlayerState:
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x = player.direction.x * player.base_move_speed
+	player.horizontal_movement()
 	if player.is_on_floor() == false:
 		if player.is_on_wall():
 			return wall_slide

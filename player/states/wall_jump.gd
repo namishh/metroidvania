@@ -36,6 +36,6 @@ func physics_process(_delta: float) -> PlayerState:
 	if player.velocity.y >= 0:
 		return fall
 	if lock_timer <= 0:
-		player.velocity.x = player.direction.x * player.base_move_speed
+		player.horizontal_movement()
 
 	return next_state

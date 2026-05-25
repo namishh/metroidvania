@@ -52,5 +52,5 @@ func physics_process(_delta: float) -> PlayerState:
 								(wall_normal.x < 0 and Input.is_action_pressed("ui_right"))
 		if pressing_into_wall:
 			return wall_slide
-	player.velocity.x = player.direction.x * player.base_move_speed
+	player.horizontal_movement()
 	return next_state
