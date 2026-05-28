@@ -347,7 +347,7 @@ shape = SubResource("RectangleShape2D_te8jg")
 one_way_collision = true
 
 [node name="Player" parent="." unique_id=246969490 instance=ExtResource("2_wt17y")]
-position = Vector2(495, 191)
+position = Vector2(2064, 181)
 
 [node name="lift_down" type="Sprite2D" parent="." unique_id=1893457622 node_paths=PackedStringArray("lift")]
 position = Vector2(574, 218)

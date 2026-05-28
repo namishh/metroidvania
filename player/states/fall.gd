@@ -2,6 +2,8 @@ class_name FallState extends PlayerState
 
 var coyote_timer :float = 0
 var buffer_timer :float = 0
+var dash_buffer_timer: float = 0
+
 
 
 func init() -> void:
@@ -20,20 +22,26 @@ func exit() -> void:
 
 
 	pass
-	
+
 func handle_input(_e: InputEvent) -> PlayerState:
-	if _e.is_action_pressed("dash") and player.dashes < player.max_dash:
-		return dash 
-	if _e.is_action_pressed("jump") and player.jumps < player.max_jump:
+	if _e.is_action_pressed("dash"):
+		if player.dashes < player.max_dash:
+			return dash
+		else:
+			dash_buffer_timer = player.dash_buffer_time 
+	if _e.is_action_pressed("jump"):
 		if coyote_timer > 0 or player.jumps < player.max_jump:
 			return jump
 		else:
 			buffer_timer = player.jump_buffer_time
 	return next_state
+
+	
 	
 func process(delta: float) -> PlayerState:
 	coyote_timer -= delta
 	buffer_timer -= delta
+	dash_buffer_timer -= delta
 
 	return next_state
 
@@ -43,6 +51,9 @@ func physics_process(_delta: float) -> PlayerState:
 		player.jumps = 0
 		if buffer_timer > 0:
 			return jump
+		if dash_buffer_timer > 0:
+			return dash
+
 		if player.water_raycast.is_colliding():
 			return swim_idle
 		return idle

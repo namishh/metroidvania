@@ -19,12 +19,13 @@ var direction : Vector2 = Vector2.ZERO
 @export var coyote_time: float = 0.125
 @export var gravity_multiplier :float = 1
 @export var jump_buffer_time: float = 0.15
+@export var dash_buffer_time: float = 0.15
+
 
 @export var wall_cling: bool = false
 
 @export var dash_velocity: float = 300
 @export var dash_duration: float = 0.25
-@export var effect_delay: float = 0.04
 
 @export var wall_jump_push_force: float = 320
 

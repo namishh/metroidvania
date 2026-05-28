@@ -91,6 +91,4 @@ hit_from_inside = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2063021784]
 position = Vector2(-1, -63)
-zoom = Vector2(1.2, 1.2)
-position_smoothing_enabled = true
 position_smoothing_speed = 2.0

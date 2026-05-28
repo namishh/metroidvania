@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c4e62ediejpbw"]
+
+[ext_resource type="Script" uid="uid://btkd717704ick" path="res://general/level_bounds.gd" id="1_ee4on"]
+
+[sub_resource type="Gradient" id="Gradient_avusy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ee4on"]
+gradient = SubResource("Gradient_avusy")
+width = 1000
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee4on"]
+size = Vector2(998, 64)
+
+[node name="SecondScene" type="Node2D" unique_id=2052902588]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=71131256]
+position = Vector2(498, 272)
+texture = SubResource("GradientTexture2D_ee4on")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=549929778]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=2005473106]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_ee4on")
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=1698416214]
+z_index = 1000
+script = ExtResource("1_ee4on")
+width = 992
+height = 302
+metadata/_custom_type_script = "uid://btkd717704ick"

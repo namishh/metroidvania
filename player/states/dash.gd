@@ -4,6 +4,7 @@ var dir: float = 1.0
 var time: float = 0.0
 
 
+
 func get_dash_direction():
 	dir = 1.0
 	if $"../../Sprite2D".flip_h == true:
